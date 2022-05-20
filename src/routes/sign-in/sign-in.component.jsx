@@ -7,6 +7,9 @@ import {
     auth
 } from '../../utils/firebase/firebase.utils';
 
+import SignUpForm from '../../components/sign-up-form/sign-up-form.component';
+
+
 const SignIn = () => {
 
     // useEffect(() => {
@@ -38,6 +41,7 @@ const SignIn = () => {
         <div>
             <h1> Signin page</h1>
             <div><button onClick={logGoogleUser}>Sign Ing with Google Popup</button></div>
+            <SignUpForm></SignUpForm>
         </div>
     )
 }
