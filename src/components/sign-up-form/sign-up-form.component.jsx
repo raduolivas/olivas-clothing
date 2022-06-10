@@ -96,7 +96,7 @@ const SignUpForm = () => {
           required
           value={confirmPassword}
         />
-        <Button buttonType='google' type="submit">Sing Up</Button>
+        <Button buttonType='' type="submit">Sing Up</Button>
       </form>
     </div>
   );
