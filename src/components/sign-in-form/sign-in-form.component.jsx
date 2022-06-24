@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 
 import { UserContext } from "../../contexts/user.context";
 
-import {
+import { 
   createUserDocumentFromAuth,
   signInWithGooglePopup,
   signInAuthUserWithEmailandPassword
@@ -24,16 +24,14 @@ const SignInForm = () => {
 
   const { setCurrentUser } = useContext(UserContext);
 
-  console.log(formFields);
-
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
 
   const signInWithGoogle = async () => {
       const {user} = await signInWithGooglePopup();
+      setCurrentUser(user);
       await createUserDocumentFromAuth(user);
-      console.log(user);
   }
 
   const handleSubmit = async (event) => {
@@ -44,7 +42,6 @@ const SignInForm = () => {
         email, 
         password
       );
-      setCurrentUser(user);
 
       resetFormFields();
     
