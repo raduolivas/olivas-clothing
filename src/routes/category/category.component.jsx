@@ -6,7 +6,7 @@ import ProductCard from "../../components/product-card/product-card.component";
 import Spinner from "../../components/spinner/spinner.component";
 
 import {
-  selectCategoriesIsLoading,
+  selectIsLoading,
   selectCategoriesMap,
 } from "../../store/categories/categories.selector";
 
@@ -15,7 +15,7 @@ import { CategoryContainer, Title } from "./category.styles";
 const Category = () => {
   const { category } = useParams();
   const categoriesMap = useSelector(selectCategoriesMap);
-  const isLoadind = useSelector(selectCategoriesIsLoadin);
+  const isLoading = useSelector(selectIsLoading);
   console.log("render/re-rendering category component");
   const [products, setProducts] = useState(categoriesMap[category]);
 
