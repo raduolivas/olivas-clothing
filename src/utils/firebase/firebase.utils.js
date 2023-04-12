@@ -66,9 +66,8 @@ export const getCategoriesAndDocuments = async () => {
   const collectionRef = collection(db, 'categories');
   const q = query(collectionRef);
 
-  // await Promise.reject(new Error('new error'));
   const querySnapshot = await getDocs(q);
-  return querySnapshot.docs.map((doc) => doc.data());
+  return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
 };
 
 export const createUserDocumentFromAuth = async (
@@ -120,12 +119,12 @@ export const onAuthStateChangedListener = (callback) =>
 export const getCurrentUser = () => {
   return new Promise((resolve, reject) => {
     const unsubscribe = onAuthStateChanged(
-      auth, 
+      auth,
       (userAuth) => {
         unsubscribe();
         resolve(userAuth);
       },
       reject
-    )
-  })
-}
+    );
+  });
+};
